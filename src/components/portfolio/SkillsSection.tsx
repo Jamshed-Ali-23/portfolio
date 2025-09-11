@@ -40,12 +40,12 @@ const Skills3DCloud = () => {
   const skills = [
     { name: "Python", level: 95, color: "#3776AB" },
     { name: "React", level: 90, color: "#61DAFB" },
-    { name: "TensorFlow", level: 85, color: "#FF6F00" },
+    { name: "Tableau", level: 85, color: "#FF6F00" },
     { name: "JavaScript", level: 90, color: "#F7DF1E" },
-    { name: "PyTorch", level: 80, color: "#EE4C2C" },
-    { name: "TypeScript", level: 85, color: "#3178C6" },
+    { name: "PowerBI", level: 80, color: "#EE4C2C" },
+    { name: "Sql", level: 85, color: "#3178C6" },
     { name: "Pandas", level: 90, color: "#150458" },
-    { name: "Node.js", level: 75, color: "#339933" },
+    { name: "Excel", level: 75, color: "#339933" },
     { name: "Scikit-learn", level: 85, color: "#F7931E" },
     { name: "AWS", level: 70, color: "#FF9900" },
   ];
@@ -77,24 +77,34 @@ const Skills3DCloud = () => {
 
 // 2D Skills Grid (fallback/additional)
 const SkillsGrid = () => {
-  const skills = [
-    { name: "Python", icon: "🐍", level: 95, category: "Data Science" },
-    { name: "TensorFlow", icon: "🧠", level: 85, category: "Data Science" },
-    { name: "PyTorch", icon: "🔥", level: 80, category: "Data Science" },
-    { name: "Pandas", icon: "🐼", level: 90, category: "Data Science" },
-    { name: "Scikit-learn", icon: "📊", level: 85, category: "Data Science" },
-    { name: "Data Visualization", icon: "📈", level: 88, category: "Data Science" },
-    { name: "HTML5", icon: "🌐", level: 95, category: "Frontend" },
-    { name: "CSS3", icon: "🎨", level: 90, category: "Frontend" },
-    { name: "JavaScript", icon: "⚡", level: 90, category: "Frontend" },
-    { name: "TypeScript", icon: "🔷", level: 85, category: "Frontend" },
-    { name: "React", icon: "⚛️", level: 90, category: "Frontend" },
-    { name: "Node.js", icon: "💚", level: 75, category: "Backend" },
-    { name: "SQL", icon: "🗄️", level: 85, category: "Data Science" },
-    { name: "AWS", icon: "☁️", level: 70, category: "Cloud" },
-    { name: "Git", icon: "📝", level: 90, category: "Tools" },
-    { name: "Jupyter", icon: "📓", level: 95, category: "Data Science" },
-  ];
+const skills = [
+  // 📊 Data Science & Analytics
+  { name: "Python", icon: "🐍", level: 85, category: "Data Science" },
+  { name: "Pandas", icon: "🐼", level: 80, category: "Data Science" },
+  { name: "NumPy", icon: "🔢", level: 82, category: "Data Science" },
+  { name: "Scikit-learn", icon: "📊", level: 75, category: "Data Science" },
+  { name: "SQL", icon: "🗄️", level: 80, category: "Data Science" },
+  { name: "Power BI", icon: "🔥", level: 78, category: "Data Science" },
+  { name: "Data Visualization", icon: "📈", level: 82, category: "Data Science" },
+  { name: "Seaborn", icon: "🎯", level: 78, category: "Data Science" },
+  { name: "Machine Learning", icon: "🤖", level: 75, category: "Data Science" },
+  { name: "Streamlit", icon: "🚀", level: 80, category: "Data Science" },
+  { name: "Jupyter", icon: "📓", level: 90, category: "Data Science" },
+
+  // 🌐 Frontend Development
+  { name: "HTML5", icon: "🌐", level: 95, category: "Frontend" },
+  { name: "CSS3", icon: "🎨", level: 90, category: "Frontend" },
+  { name: "JavaScript", icon: "⚡", level: 90, category: "Frontend" },
+  { name: "React", icon: "⚛️", level: 90, category: "Frontend" },
+  { name: "Bootstrap", icon: "🅱️", level: 88, category: "Frontend" },
+
+  // ☁️ Cloud & Tools
+  { name: "VS Code", icon: "💻", level: 95, category: "Tools" },
+  { name: "AWS", icon: "☁️", level: 65, category: "Cloud" },
+  { name: "Git", icon: "📝", level: 85, category: "Tools" },
+  { name: "Tableau", icon: "📊", level: 70, category: "Tools" }
+];
+
 
   const skillVariants = {
     hidden: { opacity: 0, scale: 0.5, rotateY: -90 },
@@ -206,7 +216,7 @@ export const SkillsSection = () => {
               Skills & Expertise
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Interactive showcase of my technical skills and proficiency levels
+              Interactive showcase of my skills — blending data science, machine learning, and frontend development.
             </p>
           </motion.div>
 
@@ -231,11 +241,10 @@ export const SkillsSection = () => {
 
           {/* Skill Categories Summary */}
           <motion.div variants={itemVariants} className="mt-16">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-14">
               {[
-                { category: "Frontend", count: 5, color: "primary", icon: "💻" },
-                { category: "Mobile", count: 2, color: "secondary", icon: "📱" },
-                { category: "Backend", count: 3, color: "accent", icon: "⚙️" },
+                { category: "Data Science & Analytics", count: 11, color: "primary", icon: "📊" },
+                { category: "Frontend", count: 5, color: "secondary", icon: "💻" },
                 { category: "Tools", count: 4, color: "primary", icon: "🛠️" }
               ].map((item, index) => (
                 <motion.div
@@ -259,11 +268,11 @@ export const SkillsSection = () => {
           <motion.div variants={itemVariants} className="mt-16 text-center">
             <div className="bg-gradient-glass backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-glass">
               <h3 className="text-2xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-                Continuous Learning Journey
+                Continuous Learning & Growth
               </h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                I believe in continuous learning and staying updated with the latest technologies. 
-                Currently exploring AI/ML integration, advanced cloud architectures, and emerging frontend frameworks.
+                I follow a continuous learning path, staying current with AI/ML advancements, cloud-native patterns, and progressive frontend techniques.
+                Recently focused on model deployment, Streamlit/Streamlit-Cloud, and advanced React patterns for complex UIs.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 {["Next.js", "GraphQL", "Kubernetes", "TensorFlow", "Web3", "AR/VR"].map((tech) => (

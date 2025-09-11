@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ExternalLink, Github, Eye } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const ProjectsSection = () => {
@@ -20,7 +19,7 @@ export const ProjectsSection = () => {
       techStack: ["Python", "Pandas", "NumPy", "Seaborn", "Matplotlib", "Scikit-learn", "XGBoost"],
       githubUrl: "https://github.com/Jamshed-Ali-23/Titanic-dataset-Kaggle-Analysis-",
       liveUrl: "#",
-      image: "/placeholder.svg",
+  image: "titanic.webp",
       category: "Data Science"
     },
     {
@@ -30,7 +29,7 @@ export const ProjectsSection = () => {
       techStack: ["Python", "Pandas", "Seaborn", "Power BI"],
       githubUrl: "https://github.com/Jamshed-Ali-23/Walmart-Sales-Analysis",
       liveUrl: "#",
-      image: "/placeholder.svg",
+  image: "walmart.webp",
       category: "Data Science"
     },
     {
@@ -40,7 +39,7 @@ export const ProjectsSection = () => {
       techStack: ["Power BI", "DAX", "Data Modeling", "SQL"],
       githubUrl: "https://github.com/Jamshed-Ali-23/Sales-Dashboard-PowerBI",
       liveUrl: "#",
-      image: "/placeholder.svg",
+  image: "retail.webp",
       category: "Data Science"
     },
     {
@@ -50,7 +49,7 @@ export const ProjectsSection = () => {
       techStack: ["Python", "Pandas", "Matplotlib", "Power BI"],
       githubUrl: "https://github.com/Jamshed-Ali-23/-Customer-Segmentation-with-RFM-Analysis",
       liveUrl: "#",
-      image: "/placeholder.svg",
+  image: "rfm.webp",
       category: "Data Science"
     },
     {
@@ -60,7 +59,7 @@ export const ProjectsSection = () => {
       techStack: ["Python", "Streamlit", "Scikit-learn", "Pandas"],
       githubUrl: "https://github.com/Jamshed-Ali-23/Asia-Cup-2025-Predictor-Dashboard",
       liveUrl: "#",
-      image: "/placeholder.svg",
+  image: "asiacup.webp",
       category: "Data Science"
     },
     {
@@ -70,7 +69,7 @@ export const ProjectsSection = () => {
       techStack: ["Python", "SymPy", "NumPy", "Plotly", "Streamlit"],
       githubUrl: "https://github.com/Jamshed-Ali-23/MVC-Graph-Plotter",
       liveUrl: "#",
-      image: "/placeholder.svg",
+  image: "calculus.webp",
       category: "Data Science"
     },
     // Frontend Development Projects
@@ -81,7 +80,7 @@ export const ProjectsSection = () => {
       techStack: ["React", "TypeScript", "Vite", "Tailwind CSS"],
       githubUrl: "https://github.com/Jamshed-Ali-23/Nexus",
       liveUrl: "#",
-      image: "/placeholder.svg",
+  image: "business.webp",
       category: "Web App"
     },
     {
@@ -91,7 +90,7 @@ export const ProjectsSection = () => {
       techStack: ["Blazor WebAssembly", "Bootstrap", "EF Core", "C#"],
       githubUrl: "https://github.com/Jamshed-Ali-23/CricketVerse-PSL-DreamXI",
       liveUrl: "#",
-      image: "/placeholder.svg",
+  image: "dream xi.webp",
       category: "Web App"
     },
     {
@@ -101,7 +100,7 @@ export const ProjectsSection = () => {
       techStack: ["HTML", "CSS", "JavaScript", "Web Audio API"],
       githubUrl: "https://github.com/Jamshed-Ali-23/Music-Player",
       liveUrl: "#",
-      image: "/placeholder.svg",
+  image: "music player.webp",
       category: "Web App"
     },
     {
@@ -109,20 +108,20 @@ export const ProjectsSection = () => {
       title: "Responsive Image Gallery",
       description: "Minimalist, mobile-friendly gallery using CSS Grid & JavaScript for smooth interactions.",
       techStack: ["HTML", "CSS", "JavaScript", "CSS Grid"],
-      githubUrl: "https://github.com/Jamshed-Ali-23/Image-Gallery",
-      liveUrl: "#",
-      image: "/placeholder.svg",
-      category: "Web App"
+    githubUrl: "https://github.com/Jamshed-Ali-23/Image-Gallery",
+    liveUrl: "#",
+  image: "image gallery.webp",
+    category: "Web App"
     },
     {
       id: 11,
       title: "E-Commerce Website",
       description: "Internship project: fully responsive desktop shopping website with modern UI.",
       techStack: ["HTML", "CSS", "JavaScript"],
-      githubUrl: "https://github.com/Jamshed-Ali-23/ecommerce-website",
-      liveUrl: "#",
-      image: "/placeholder.svg",
-      category: "Web App"
+    githubUrl: "https://github.com/Jamshed-Ali-23/ecommerce-website",
+    liveUrl: "#",
+  image: "e commerece.webp",
+    category: "Web App"
     }
   ];
 
@@ -217,120 +216,54 @@ export const ProjectsSection = () => {
                 }}
                 className="group perspective-1000 hover-tilt"
               >
-                <Card className="h-full bg-gradient-glass backdrop-blur-md border-border/50 shadow-glass overflow-hidden hover:shadow-floating transition-all duration-700 transform-gpu relative">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-primary/5 opacity-0 group-hover:opacity-100"
-                    transition={{ duration: 0.5 }}
-                  />
-                  <CardHeader className="p-0">
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="absolute top-4 right-4">
-                        <Badge variant="secondary" className="bg-muted/80 backdrop-blur-sm">
-                          {project.category}
-                        </Badge>
+                <Card className="h-full overflow-hidden rounded-lg shadow-lg transform transition-all hover:-translate-y-3 hover:shadow-2xl">
+                  <div className="relative">
+                          {(() => {
+                            const defaultImg = `${import.meta.env.BASE_URL}placeholder.svg`;
+                            let imgSrc = defaultImg;
+                            if (project.image) {
+                              if (project.image.startsWith("/")) {
+                                imgSrc = `${import.meta.env.BASE_URL}${project.image.replace(/^\//, "")}`;
+                              } else {
+                                imgSrc = `${import.meta.env.BASE_URL}project-images/${project.image}`;
+                              }
+                            }
+
+                            return (
+                              <img
+                                src={imgSrc}
+                                alt={project.title}
+                                loading="lazy"
+                                decoding="async"
+                                className="w-full h-48 md:h-56 object-cover"
+                              />
+                            );
+                          })()}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute left-4 bottom-4 text-white">
+                      <div className="text-sm font-semibold bg-black/50 px-3 py-1 rounded">{project.category}</div>
+                    </div>
+                  </div>
+
+                  <CardContent className="p-5">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <CardTitle className="text-lg font-bold">{project.title}</CardTitle>
+                        <p className="text-sm text-muted-foreground mt-2 line-clamp-3">{project.description}</p>
+                        <div className="flex flex-wrap gap-2 mt-3">
+                          {project.techStack.slice(0,4).map((tech) => (
+                            <Badge key={tech} variant="outline" className="text-xs">{tech}</Badge>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent className="p-6 space-y-4">
-                    <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
-                      {project.title}
-                    </CardTitle>
-                    
-                    <p className="text-muted-foreground line-clamp-3">
-                      {project.description}
-                    </p>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.techStack.map((tech) => (
-                        <Badge
-                          key={tech}
-                          variant="outline"
-                          className="text-xs border-primary/30 text-primary hover:bg-primary/10 transition-colors"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex space-x-3 pt-4">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 border-primary/50 text-primary hover:bg-primary/10 focus:bg-primary/20 active:bg-primary/30"
-                        asChild
-                      >
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-4 h-4 mr-2" />
-                          Code
-                        </a>
-                      </Button>
-                      
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button
-                            size="sm"
-                            className="flex-1 bg-gradient-primary hover:shadow-neon focus:opacity-90 active:opacity-80"
-                            onClick={() => setSelectedProject(project)}
-                          >
-                            <Eye className="w-4 h-4 mr-2" />
-                            View Demo
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-4xl bg-background/95 backdrop-blur-md border-border/50">
-                          <DialogHeader>
-                            <DialogTitle className="text-2xl bg-gradient-primary bg-clip-text text-transparent">
-                              {selectedProject?.title}
-                            </DialogTitle>
-                          </DialogHeader>
-                          <div className="space-y-6">
-                            <img
-                              src={selectedProject?.image}
-                              alt={selectedProject?.title}
-                              className="w-full h-64 object-cover rounded-lg"
-                            />
-                            <p className="text-muted-foreground leading-relaxed">
-                              {selectedProject?.description}
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                              {selectedProject?.techStack.map((tech: string) => (
-                                <Badge key={tech} variant="secondary">
-                                  {tech}
-                                </Badge>
-                              ))}
-                            </div>
-                            <div className="flex space-x-4">
-                              <Button
-                                variant="outline"
-                                className="border-primary/50 text-primary hover:bg-primary/10"
-                                asChild
-                              >
-                                <a href={selectedProject?.githubUrl} target="_blank" rel="noopener noreferrer">
-                                  <Github className="w-4 h-4 mr-2" />
-                                  View Source
-                                </a>
-                              </Button>
-                              <Button
-                                className="bg-gradient-primary hover:shadow-neon"
-                                asChild
-                              >
-                                <a href={selectedProject?.liveUrl} target="_blank" rel="noopener noreferrer">
-                                  <ExternalLink className="w-4 h-4 mr-2" />
-                                  Visit Live Site
-                                </a>
-                              </Button>
-                            </div>
-                          </div>
-                        </DialogContent>
-                      </Dialog>
+                      <div className="ml-4 flex-shrink-0">
+                        <Button asChild size="sm" variant="outline" className="flex items-center">
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                            <Github className="w-4 h-4 mr-2" />
+                            Code
+                          </a>
+                        </Button>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>

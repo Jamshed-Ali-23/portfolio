@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ThreeBackground } from "./ThreeBackground";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ChevronDown, Sparkles, Code, Smartphone } from "lucide-react";
 
 export const HeroSection = () => {
+  const [ThreeBG, setThreeBG] = useState<React.ComponentType<any> | null>(null);
   const [text, setText] = useState("");
   const fullText = "Hi, I'm Jamshed Ali — Data Scientist & Frontend Developer";
   const { scrollY } = useScroll();
@@ -25,6 +25,21 @@ export const HeroSection = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Dynamically import heavy 3D background after mount to avoid blocking
+  useEffect(() => {
+    let mounted = true;
+    import("./ThreeBackground")
+      .then((mod) => {
+        if (mounted && mod?.ThreeBackground) setThreeBG(() => mod.ThreeBackground);
+      })
+      .catch(() => {
+        /* ignore load errors (keep fallback) */
+      });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   const scrollToNext = () => {
     const aboutSection = document.getElementById("about");
     if (aboutSection) {
@@ -34,7 +49,12 @@ export const HeroSection = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <ThreeBackground />
+      {/* Dynamically loaded 3D background (separate chunk). Renders fallback gradient until loaded. */}
+      {ThreeBG ? (
+        <ThreeBG />
+      ) : (
+        <div className="absolute inset-0 -z-20 bg-gradient-to-br from-[#071026] to-[#07101a]" aria-hidden />
+      )}
       
       {/* Floating elements */}
       <motion.div
@@ -194,9 +214,9 @@ export const HeroSection = () => {
               }}
             />
             
-            {/* Text decoration */}
-            <motion.div
-              className="absolute -inset-4 bg-gradient-primary/5 rounded-2xl blur-3xl"
+            {/* Text decoration (use span to avoid div inside h1) */}
+            <motion.span
+              className="absolute -inset-4 bg-gradient-primary/5 rounded-2xl blur-3xl block"
               animate={{
                 scale: [0.8, 1.1, 0.8],
                 opacity: [0.3, 0.6, 0.3]
@@ -216,15 +236,15 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.8, type: "spring", damping: 10 }}
           >
-            Passionate about creating{" "}
+            Passionate about turning{" "}
             <motion.span 
               className="text-gradient-primary font-bold relative"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", damping: 15 }}
             >
-              interactive UIs
-              <motion.div
-                className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-primary rounded-full"
+              data into insights
+              <motion.span
+                className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-primary rounded-full block"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 2.5, duration: 0.6 }}
@@ -235,9 +255,9 @@ export const HeroSection = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", damping: 15 }}
             >
-              beautiful mobile apps
-              <motion.div
-                className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-secondary rounded-full"
+              building interactive dashboards
+              <motion.span
+                className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-secondary rounded-full block"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 3, duration: 0.6 }}
@@ -248,9 +268,9 @@ export const HeroSection = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", damping: 15 }}
             >
-              3D web experiences
-              <motion.div
-                className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-accent rounded-full"
+              crafting modern, responsive UIs that deliver both clarity and impact.
+              <motion.span
+                className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-accent rounded-full block"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 3.5, duration: 0.6 }}

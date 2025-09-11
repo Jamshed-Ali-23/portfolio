@@ -1,26 +1,17 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Award } from "lucide-react";
-import { FC } from 'react';
+import { ExternalLink, Award, Calendar } from "lucide-react";
 
-type Certificate = {
-  id: number;
-  title: string;
-  platform: string;
-  issueDate: string;
-  credentialUrl: string;
-  logo: string;
-  description: string;
-};
-
-export const CertificatesSection = () => {
+export const CertificatesSection = (): JSX.Element => {
   const certificates = [
     {
       id: 1,
       title: "AWS Cloud Practitioner Essentials",
       platform: "Amazon Web Services",
-      issueDate: "2023",
+      issueDate: "2025",
       credentialUrl: "/Certificates/Aws Cloud Practitioner Essentials.pdf",
       logo: "☁️",
       color: "primary",
@@ -30,7 +21,7 @@ export const CertificatesSection = () => {
       id: 2,
       title: "Basic in Machine Learning",
       platform: "Coursera",
-      issueDate: "2023",
+      issueDate: "2025",
       credentialUrl: "/Certificates/Basic in Machine Learning.pdf",
       logo: "🧠",
       color: "secondary",
@@ -40,7 +31,7 @@ export const CertificatesSection = () => {
       id: 3,
       title: "Basic of Data Science",
       platform: "DataCamp",
-      issueDate: "2023",
+      issueDate: "2025",
       credentialUrl: "/Certificates/Basic of Data science.pdf",
       logo: "📊",
       color: "accent",
@@ -50,7 +41,7 @@ export const CertificatesSection = () => {
       id: 4,
       title: "Data Analytics",
       platform: "Google",
-      issueDate: "2023",
+      issueDate: "2025",
       credentialUrl: "/Certificates/Data Analytics.pdf",
       logo: "📈",
       color: "primary",
@@ -60,7 +51,7 @@ export const CertificatesSection = () => {
       id: 5,
       title: "Introduction to Frontend Development",
       platform: "Meta",
-      issueDate: "2022",
+      issueDate: "2025",
       credentialUrl: "/Certificates/Introduction to Frontend Development.pdf",
       logo: "⚛️",
       color: "secondary",
@@ -70,7 +61,7 @@ export const CertificatesSection = () => {
       id: 6,
       title: "Machine Learning Using Python",
       platform: "IBM",
-      issueDate: "2022",
+      issueDate: "2025",
       credentialUrl: "/Certificates/Machine Learning Using Phyton.pdf",
       logo: "🐍",
       color: "accent",
@@ -115,28 +106,30 @@ export const CertificatesSection = () => {
   };
 
   return (
-    <div className="py-20 bg-white" id="certificates">
-      <div className="container px-4 mx-auto">
+    <section id="certificates" className="py-20 relative">
+      <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto text-center"
-        >
-          <h2 className="text-3xl font-bold mb-4">Professional Certifications</h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Continuous learning and professional development achievements
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+          className="max-w-7xl mx-auto"
         >
+          {/* Section Title */}
+          <motion.div variants={certificateVariants} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-secondary bg-clip-text text-transparent">
+              Certificates & Achievements
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Professional certifications that validate my expertise across various technologies
+            </p>
+          </motion.div>
+
+          {/* Certificates Grid */}
+          <motion.div
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {certificates.map((certificate, index) => (
               <motion.div
                 key={certificate.id}
@@ -208,13 +201,13 @@ export const CertificatesSection = () => {
                       }`}
                       asChild
                     >
-                      <a 
-                        href={certificate.credentialUrl} 
-                        target="_blank" 
+                      <a
+                        href={certificate.credentialUrl}
+                        target="_blank"
                         rel="noopener noreferrer"
-                        className="group/btn"
+                        className="group-btn"
                       >
-                        <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:rotate-12 transition-transform" />
+                        <ExternalLink className="w-4 h-4 mr-2 transition-transform" />
                         View Certificate
                       </a>
                     </Button>
@@ -252,6 +245,6 @@ export const CertificatesSection = () => {
           </motion.div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };

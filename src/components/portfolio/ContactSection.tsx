@@ -289,8 +289,7 @@ export const ContactSection = () => {
             <div className="bg-gradient-glass backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-glass">
               <h3 className="text-2xl font-bold mb-4">Ready to Start Your Project?</h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Whether you need a stunning website, a mobile app, or want to integrate cutting-edge 3D experiences, 
-                I'm here to help bring your vision to life with clean code and beautiful design.
+                Whether you need powerful data insights, interactive dashboards, or a modern and responsive website, I bring your vision to life by combining data science and analytics with frontend development—delivering clean code, actionable insights, and beautiful design.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button

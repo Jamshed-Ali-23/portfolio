@@ -117,7 +117,7 @@ export const ResumeSection = () => {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <p>📄 PDF format • 📊 2 pages • 🕒 Last updated: January 2024</p>
+            <p>📄 PDF format • 📊 2 pages • 🕒 Last updated: January 2025</p>
           </motion.div>
         </motion.div>
       </div>

@@ -61,7 +61,7 @@ export const AboutSection = () => {
               About Me
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Passionate developer crafting digital experiences with cutting-edge technology
+              Data scientist and frontend developer focused on building data-driven web applications and interactive visualizations.
             </p>
           </motion.div>
 
@@ -97,13 +97,12 @@ export const AboutSection = () => {
                         Data Scientist & Frontend Developer
                       </h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        I'm a passionate developer with expertise in data science and creating stunning user interfaces. 
-                        I love bringing ideas to life through data analysis, machine learning, and seamless user experiences.
+                        I combine data science and frontend engineering to build intuitive, data-driven applications.
+                        I design and deploy ML models, create interactive dashboards and visualizations, and craft responsive UIs using modern web technologies.
                       </p>
                       <p className="text-muted-foreground leading-relaxed">
-                        My journey spans from analyzing complex datasets and building predictive models 
-                        to crafting responsive web applications with modern frontend technologies. 
-                        I'm constantly exploring new technologies and pushing the boundaries of what's possible in data-driven applications.
+                        My work ranges from exploratory data analysis and predictive modeling to building polished frontend experiences with React, TypeScript, and Tailwind.
+                        I prioritize clear visuals, fast interactions, and reproducible data workflows.
                       </p>
                     </div>
 

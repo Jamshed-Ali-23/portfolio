@@ -1,6 +1,6 @@
 import { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 // Enhanced 3D animated background elements (floating cubes and boxes)
@@ -214,9 +214,10 @@ export const ThreeBackground = () => {
         <MovingRectangles />
         <SoftParticles />
 
-        {/* Subtle fog for depth */}
-        <fog attach="fog" args={["#0b1220", 50, 200]} />
-        <Environment preset="night" />
+  {/* Subtle fog for depth */}
+  <fog attach="fog" args={["#0b1220", 50, 200]} />
+  {/* Use a hemisphere light instead of remote HDR environment to avoid network fetch issues */}
+  <hemisphereLight skyColor={0xffffff} groundColor={0x080810} intensity={0.35} />
       </Canvas>
 
       {/* Soft gradient overlays */}
